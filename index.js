@@ -6,11 +6,9 @@ const app = express();
 const userRouter = require("./routes/userRoutes")
 const postRouter = require("./routes/postRoute")
 require("dotenv").config()
-// const cors = require("cors")
 
 app.use(express.json());
 app.use(express.text());
-// app.use(cors());
 
 const connection = async () => {
     try {
