@@ -6,11 +6,11 @@ const app = express();
 const userRouter = require("./routes/userRoutes")
 const postRouter = require("./routes/postRoute")
 require("dotenv").config()
-const cors = require("cors")
+// const cors = require("cors")
 
 app.use(express.json());
 app.use(express.text());
-app.use(cors());
+// app.use(cors());
 
 const connection = async () => {
     try {
@@ -19,8 +19,6 @@ const connection = async () => {
         console.log(error)
     }
 }
-
-
 
 app.use("/user", userRouter)
 app.use("/post", postRouter)
