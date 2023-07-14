@@ -6,9 +6,12 @@ const app = express();
 const userRouter = require("./routes/userRoutes")
 const postRouter = require("./routes/postRoute")
 require("dotenv").config()
+const cors = require("cors")
 
 app.use(express.json());
 app.use(express.text());
+app.use(cors());
+
 
 const connection = async () => {
     try {
@@ -20,6 +23,10 @@ const connection = async () => {
 
 app.use("/user", userRouter)
 app.use("/post", postRouter)
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 
 app.listen(7000, (err) => {
